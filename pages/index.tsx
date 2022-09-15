@@ -1,13 +1,15 @@
+import { Button } from "@mui/material";
 import type { NextPage } from "next";
+import Link from "next/link";
 
 import styles from "../components/home/home.module.css";
-import View from "../components/home/pdf page/pdf_view";
 
 const Home: NextPage = () => {
   return (
     <main id="main" className={styles.main}>
-      <div style={{ width: "55%" }}>ds</div>
-      <View />
+      <Link href="/create-cv">
+        <Button variant="contained">Create your CV</Button>
+      </Link>
     </main>
   );
 };

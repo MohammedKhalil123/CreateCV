@@ -1,7 +1,11 @@
-import { Page, Text, Image, Document, StyleSheet } from "@react-pdf/renderer";
+import ReactPDF, {
+  Page,
+  Text,
+  Document,
+  StyleSheet,
+} from "@react-pdf/renderer";
 import { PDFViewer } from "@react-pdf/renderer";
 import { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
 const styles = StyleSheet.create({
   body: {
@@ -40,19 +44,14 @@ const styles = StyleSheet.create({
 });
 
 function PDFFile() {
-  const [counter, setCounter] = useState(0);
-
-  const increment = () => {
-    setCounter(2);
-  };
-
   return (
-    <Document>
-      <Page style={styles.body}>
-        <Text style={styles.header} fixed></Text>
+    <Document pdfVersion="1.3">
+      <Page style={styles.body} size="A4">
+        <Text style={styles.header} fixed>
+          dsds
+        </Text>
 
         <Text style={styles.text}>
-          {counter}
           Oh right. I forgot about the battle. Wow, you got that off the
           Internet? In my day, the Internet was only used to download
           pornography. I dont know what you did, Fry, but once again, you
@@ -129,7 +128,7 @@ const PDFView = () => {
   }, []);
 
   return (
-    <PDFViewer width="45%" showToolbar={false} style={{ marginTop: "10px" }}>
+    <PDFViewer style={{ height: "100vh", width: "100vw" }}>
       <PDFFile />
     </PDFViewer>
   );
