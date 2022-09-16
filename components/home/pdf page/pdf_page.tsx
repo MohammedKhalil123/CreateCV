@@ -5,7 +5,7 @@ import ReactPDF, {
   StyleSheet,
 } from "@react-pdf/renderer";
 import { PDFViewer } from "@react-pdf/renderer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const styles = StyleSheet.create({
   body: {
@@ -44,8 +44,26 @@ const styles = StyleSheet.create({
 });
 
 function PDFFile() {
+  const printRef = useRef();
+
+  // const handleDownloadPdf = async () => {
+  //   if (printRef.current !== null) {
+  //     const element: HTMLElement = printRef.current;
+  //     const canvas = await html2canvas(element);
+  //     const data = canvas.toDataURL("image/png");
+
+  //     const pdf = new jsPDF();
+  //     const imgProperties = pdf.getImageProperties(data);
+  //     const pdfWidth = pdf.internal.pageSize.getWidth();
+  //     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+  //     pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+  //     pdf.save("print.pdf");
+  //   }
+  // };
+
   return (
-    <Document pdfVersion="1.3">
+    <Document>
       <Page style={styles.body} size="A4">
         <Text style={styles.header} fixed>
           dsds
@@ -128,7 +146,7 @@ const PDFView = () => {
   }, []);
 
   return (
-    <PDFViewer style={{ height: "100vh", width: "100vw" }}>
+    <PDFViewer style={{ height: "100vh", width: "40%" }} showToolbar={true}>
       <PDFFile />
     </PDFViewer>
   );

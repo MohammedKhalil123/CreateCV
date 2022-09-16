@@ -1,0 +1,26 @@
+.formContainer {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding: 10px 8px;
+  gap: 8px;
+  background-color: rgb(235, 235, 235);
+  height: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 25px;
+  margin-bottom: 12px;
+  color: #002463;
+}
+
+.actionButtons {
+  width: 100%;
+  display: flex;
+  padding: 0px 16px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

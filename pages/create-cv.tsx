@@ -1,24 +1,17 @@
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-
-const PdfRealView = dynamic(
-  () => import("../components/home/pdf page/pdf_view"),
-  {
-    ssr: false,
-  }
-);
+import CVPreview from "../components/create cv/cv_preview";
+import styles from "../components/create cv/create_cv.module.css";
+import CVForm from "../components/create cv/cv_form";
+import Head from "next/head";
 
 const CreateCVPage = () => {
-  const [client, setClient] = useState(false);
-
-  useEffect(() => {
-    setClient(true);
-  }, []);
-
   return (
-    <div style={{ height: "100vh" }}>
-      <PdfRealView></PdfRealView>
-    </div>
+    <main className={styles.main}>
+      <Head>
+        <title>Create your CV</title>
+      </Head>
+      <CVForm />
+      <CVPreview />
+    </main>
   );
 };
 
