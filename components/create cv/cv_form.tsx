@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import styles from "./cv_form.module.css";
 import EducationInfo from "./education_info";
 import ExperienceInfo from "./experience_info";
-import PersonalInfo from "./personal_jnfo";
+import PersonalInfo from "./personal_info";
 
 export default function CVForm() {
   return (
