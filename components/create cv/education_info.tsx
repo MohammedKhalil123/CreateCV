@@ -3,18 +3,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import sharedStyles from "./shared_styles.module.css";
 
 export default function EducationInfo() {
   return (
     <div>
       <Accordion>
         <AccordionSummary
-          style={{ backgroundColor: "#002463" }}
-          expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+          className={sharedStyles.accrodionTile}
+          expandIcon={<ExpandMoreIcon className={sharedStyles.expandIcon} />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography style={{ color: "white" }}>Education</Typography>
+          <Typography className={sharedStyles.accrodionTitle}>
+            Education
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

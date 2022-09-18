@@ -1,5 +1,9 @@
 import styles from "./cv_preview.module.css";
 
 export default function CVPreview() {
-  return <section className={styles.page}></section>;
+  return (
+    <div className={styles.pageContainer}>
+      <section className={styles.page}></section>
+    </div>
+  );
 }

@@ -1,10 +1,12 @@
 .page {
   aspect-ratio: 1/1.4142;
-  display: flex;
-  align-items: center;
-
-  margin: auto;
   height: 90vh;
   background-color: white;
   box-shadow: 2px 0px 10px 4px rgb(204, 204, 204);
+}
+
+.pageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

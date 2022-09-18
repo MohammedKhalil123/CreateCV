@@ -1,0 +1,17 @@
+.accrodionTile {
+  background-color: #002463;
+}
+
+.accrodionTitle {
+  font-size: 22.5px;
+  color: white;
+}
+
+.expandIcon {
+  color: white;
+}
+
+.accrodionDetails {
+  display: flex;
+  flex-direction: column;
+}
