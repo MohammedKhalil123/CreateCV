@@ -12,7 +12,7 @@ const theme = createTheme({
       main: "#FCB730",
     },
     error: {
-      main: "#FF3333",
+      main: "#FF0000",
     },
   },
 });

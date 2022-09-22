@@ -4,27 +4,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import sharedStyles from "./shared_styles.module.css";
-import CustomInputField from "./input_field";
 import styles from "./personal_info.module.css";
-import { useState } from "react";
-
-export interface PersonalInformation {
-  firstName: string;
-  lastName: string;
-  email: string;
-  location: string;
-  major: string;
-}
+import { Field } from "formik";
 
 export default function PersonalInfo() {
-  const [personalInfo, setPersonalInfo] = useState<PersonalInformation>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    location: "",
-    major: "",
-  });
-
   return (
     <div>
       <Accordion>
@@ -41,65 +24,46 @@ export default function PersonalInfo() {
         <AccordionDetails className={sharedStyles.accrodionDetails}>
           <div className={styles.gridLayout}>
             <div className={styles.singleCell}>
-              <div>First Name</div>
-              <CustomInputField
-                onBlur={(val) => {
-                  setPersonalInfo((prevState) => ({
-                    ...personalInfo,
-                    firstName: val.target.value,
-                  }));
-                  console.log(personalInfo);
-                }}
+              <label htmlFor="firstName">First Name</label>
+              <Field
+                id="firstName"
+                className={sharedStyles.inputField}
+                name="personalInformation.firstName"
               />
             </div>
             <div className={styles.singleCell}>
-              <div>Last Name</div>
-              <CustomInputField
-                onBlur={(val) => {
-                  setPersonalInfo((prevState) => ({
-                    ...personalInfo,
-                    lastName: val.target.value,
-                  }));
-                  console.log(personalInfo);
-                }}
+              <label htmlFor="lastName">Last Name</label>
+              <Field
+                id="lastName"
+                className={sharedStyles.inputField}
+                name="personalInformation.lastName"
               />
             </div>
             <div className={styles.singleCell}>
-              <div>Location</div>
-              <CustomInputField
-                onBlur={(val) => {
-                  setPersonalInfo((prevState) => ({
-                    ...personalInfo,
-                    location: val.target.value,
-                  }));
-                  console.log(personalInfo);
-                }}
+              <label htmlFor="location">Location</label>
+              <Field
+                id="location"
+                className={sharedStyles.inputField}
+                name="personalInformation.location"
               />
             </div>
 
             <div className={styles.singleCell}>
-              <div>Major</div>
-              <CustomInputField
-                onBlur={(val) => {
-                  setPersonalInfo((prevState) => ({
-                    ...personalInfo,
-                    major: val.target.value,
-                  }));
-                  console.log(personalInfo);
-                }}
+              <label htmlFor="job">Job</label>
+              <Field
+                id="job"
+                className={sharedStyles.inputField}
+                name="personalInformation.job"
               />
             </div>
 
             <div className={styles.singleCell}>
-              <div>Email</div>
-              <CustomInputField
-                onBlur={(val) => {
-                  setPersonalInfo((prevState) => ({
-                    ...personalInfo,
-                    email: val.target.value,
-                  }));
-                  console.log(personalInfo);
-                }}
+              <label htmlFor="email">Email</label>
+              <Field
+                id="email"
+                type="email"
+                className={sharedStyles.inputField}
+                name="personalInformation.email"
               />
             </div>
           </div>

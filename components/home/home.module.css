@@ -1,8 +1,52 @@
 .main {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  padding: 42px 0px;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 40px;
+}
+
+.templateSelectionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 40px;
+}
+
+.templateElement:not(.selected):hover {
+  border: 1px solid #004bcc;
+}
+
+.templateElement {
+  aspect-ratio: 1/1.4142;
+  height: 450px;
+  background-color: white;
+  box-shadow: 2px 0px 10px 4px rgb(204, 204, 204);
+  transition: 250ms ease-in-out border-color;
+
+  border: transparent;
+  animation: fromTop 1s 1;
+  animation-delay: 0s;
+}
+
+.selected {
+  border: 2px solid #002463;
+}
+
+.title {
+  text-transform: uppercase;
+  color: #002463;
+}
+
+@keyframes fromTop {
+  from {
+    opacity: 0;
+    transform: translate(0px, -24px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 }
