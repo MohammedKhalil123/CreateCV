@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "./cv_form.module.css";
 import EducationInfo from "./education_info";
 import ExperienceInfo from "./experience_info";
 import PersonalInfo from "./personal_info";
+import SkillsAndInterests from "./skills_interests";
 
 interface PersonalInformation {
   firstName: string;
@@ -66,8 +68,9 @@ const initialValues: CVInformation = {
   ],
 };
 
-export default function CVForm() {
-  const [pageIndex, setPageIndex] = useState<number>(0);
+export default function CVForm(props: any) {
+  const { goNext } = props;
+  const router = useRouter();
 
   return (
     <section className={styles.formContainer}>
@@ -75,18 +78,26 @@ export default function CVForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
           console.log(JSON.stringify(values, null, 2));
+          goNext();
         }}
       >
         <Form className={styles.form}>
           <PersonalInfo />
           <EducationInfo />
           <ExperienceInfo />
+          <SkillsAndInterests />
           <div className={styles.actionButtons}>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                router.back();
+              }}
+              color="primary"
+              size="large"
+            >
+              Back
+            </Button>
             <Button variant="contained" type="submit" size="large">
               Generate
             </Button>

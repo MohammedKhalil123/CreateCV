@@ -30,13 +30,16 @@ const Home: NextPage = () => {
             );
           })}
       </section>
-      {selectedTemplate && (
-        <Link href="/create-cv">
-          <Button variant="contained" sx={{ fontSize: "25px" }}>
-            Create your CV
-          </Button>
-        </Link>
-      )}
+
+      <Link href="/create-cv">
+        <Button
+          variant="contained"
+          sx={{ fontSize: "25px" }}
+          disabled={!selectedTemplate}
+        >
+          Create your CV
+        </Button>
+      </Link>
     </main>
   );
 };

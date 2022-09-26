@@ -21,7 +21,7 @@ const CreateCVPage = () => {
         <title>Create your CV</title>
       </Head>
 
-      {index === 0 ? <CVForm /> : null}
+      {index === 0 ? <CVForm goNext={goNext} /> : null}
 
       {index === 0 ? <CVPreview /> : null}
     </main>
