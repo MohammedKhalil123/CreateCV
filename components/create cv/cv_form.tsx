@@ -1,7 +1,5 @@
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import styles from "./cv_form.module.css";
 import EducationInfo from "./education_info";
 import ExperienceInfo from "./experience_info";
@@ -69,8 +67,7 @@ const initialValues: CVInformation = {
 };
 
 export default function CVForm(props: any) {
-  const { goNext } = props;
-  const router = useRouter();
+  const { goNext, goBack } = props;
 
   return (
     <section className={styles.formContainer}>
@@ -90,9 +87,7 @@ export default function CVForm(props: any) {
           <div className={styles.actionButtons}>
             <Button
               variant="outlined"
-              onClick={() => {
-                router.back();
-              }}
+              onClick={goBack}
               color="primary"
               size="large"
             >
