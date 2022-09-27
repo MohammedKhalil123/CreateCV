@@ -35,7 +35,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 24px;
-  row-gap: 12px;
+  row-gap: 0px;
   margin: 8px 0px;
 }
 
@@ -44,5 +44,53 @@
   width: 100%;
   justify-content: center;
   gap: 8px;
+  margin: 6px 0px;
   flex-direction: column;
+}
+
+.removeButton {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  align-self: center;
+
+  justify-self: flex-end;
+}
+
+.labelPlaceholderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.placeholder {
+  color: gray;
+  font-size: 12px;
+}
+
+.bulletPointField {
+  outline: none;
+  border: 1px solid #002463;
+  box-shadow: 0px 0px 2px 2px rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 8px;
+  height: 35px;
+  min-width: 50%;
+  max-width: 70%;
+  transition: 250ms ease-in-out box-shadow;
+}
+
+.bulletPointField:hover,
+.bulletPointField:focus {
+  box-shadow: 0px 0px 5px 2px rgb(175, 175, 175);
+}
+
+.wholeWidth {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.checkbox {
+  height: 18px;
+  width: 18px;
 }

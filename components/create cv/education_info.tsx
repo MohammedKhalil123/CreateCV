@@ -31,6 +31,18 @@ export default function EducationInfo() {
               <div>
                 {values.educationList.map((education, index) => (
                   <div className={sharedStyles.gridLayout} key={index}>
+                    {index > 0 ? (
+                      <div className={sharedStyles.removeButton}>
+                        <Button
+                          type="button"
+                          variant="contained"
+                          color="error"
+                          onClick={() => arrayHelpers.remove(index)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    ) : null}
                     <div className={sharedStyles.singleCell}>
                       <label htmlFor="major">Major</label>
                       <Field
@@ -48,7 +60,13 @@ export default function EducationInfo() {
                       />
                     </div>
                     <div className={sharedStyles.singleCell}>
-                      <label htmlFor="from">From</label>
+                      <div className={sharedStyles.labelPlaceholderRow}>
+                        <label htmlFor="from">From</label>
+                        <span className={sharedStyles.placeholder}>
+                          MM/YYYY
+                        </span>
+                      </div>
+
                       <Field
                         id="from"
                         className={sharedStyles.inputField}
@@ -56,7 +74,13 @@ export default function EducationInfo() {
                       />
                     </div>
                     <div className={sharedStyles.singleCell}>
-                      <label htmlFor="to">To</label>
+                      <div className={sharedStyles.labelPlaceholderRow}>
+                        <label htmlFor="to">To</label>
+                        <span className={sharedStyles.placeholder}>
+                          MM/YYYY
+                        </span>
+                      </div>
+
                       <Field
                         id="to"
                         className={sharedStyles.inputField}
@@ -65,25 +89,17 @@ export default function EducationInfo() {
                     </div>
 
                     <div className={sharedStyles.singleCell}>
-                      <label htmlFor="gpa">GPA</label>
+                      <div className={sharedStyles.labelPlaceholderRow}>
+                        <label htmlFor="gpa">GPA</label>
+                        <span className={sharedStyles.placeholder}>X.XX</span>
+                      </div>
+
                       <Field
                         id="gpa"
                         className={sharedStyles.inputField}
                         name={`educationList.${index}.gpa`}
                       />
                     </div>
-                    {index > 0 ? (
-                      <div className={sharedStyles.singleCell}>
-                        <Button
-                          type="button"
-                          variant="contained"
-                          color="error"
-                          onClick={() => arrayHelpers.remove(index)}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    ) : null}
                   </div>
                 ))}
                 <Button

@@ -12,7 +12,7 @@ const theme = createTheme({
       main: "#FCB730",
     },
     error: {
-      main: "#FF0000",
+      main: "rgb(236, 75, 75)",
     },
   },
 });

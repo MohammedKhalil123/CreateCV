@@ -12,14 +12,14 @@ export default function ChooseTemplate(props: any) {
       <h1 className={styles.title}>please select your preferred template</h1>
       <section className={styles.templateSelectionGrid}>
         {Array(10)
-          .fill(0)
-          .map((key, index) => {
+          .fill(null)
+          .map((value, index) => {
             return (
               <div
                 className={`${styles.templateElement} ${
                   selectedTemplate == index ? styles.selected : ""
                 }`}
-                key={key}
+                key={index}
                 onClick={() => {
                   if (selectedTemplate !== index) {
                     setSelectedTemplate(index);

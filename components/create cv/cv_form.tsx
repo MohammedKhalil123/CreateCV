@@ -4,7 +4,14 @@ import styles from "./cv_form.module.css";
 import EducationInfo from "./education_info";
 import ExperienceInfo from "./experience_info";
 import PersonalInfo from "./personal_info";
-import SkillsAndInterests from "./skills_interests";
+import SkillsAndInterests from "./skills_interests_languages";
+
+export enum LanguageLevels {
+  beginner = "Beginner",
+  intermediate = "Intermediate",
+  proficient = "Proficient",
+  native = "Native",
+}
 
 interface PersonalInformation {
   firstName: string;
@@ -31,10 +38,18 @@ interface EducationInformation {
   gpa: string;
 }
 
+interface LanguageInfo {
+  language: string;
+  level: LanguageLevels;
+}
+
 export interface CVInformation {
   personalInformation: PersonalInformation;
   experienceList: ExperienceInformation[];
   educationList: EducationInformation[];
+  skills: string[];
+  interests: string[];
+  languages: LanguageInfo[];
 }
 
 const initialValues: CVInformation = {
@@ -52,7 +67,7 @@ const initialValues: CVInformation = {
       isCurrent: false,
       from: "",
       to: "",
-      points: [],
+      points: [""],
     },
   ],
   educationList: [
@@ -64,6 +79,9 @@ const initialValues: CVInformation = {
       gpa: "",
     },
   ],
+  skills: [],
+  interests: [],
+  languages: [],
 };
 
 export default function CVForm(props: any) {
