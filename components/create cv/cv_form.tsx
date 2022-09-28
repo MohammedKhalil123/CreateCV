@@ -79,9 +79,9 @@ const initialValues: CVInformation = {
       gpa: "",
     },
   ],
-  skills: [],
-  interests: [],
-  languages: [],
+  skills: [""],
+  interests: [""],
+  languages: [{ language: "", level: LanguageLevels.beginner }],
 };
 
 export default function CVForm(props: any) {

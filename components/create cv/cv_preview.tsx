@@ -1,3 +1,4 @@
+import { Page, PDFViewer, Document } from "@react-pdf/renderer";
 import styles from "./cv_preview.module.css";
 
 export default function CVPreview() {
