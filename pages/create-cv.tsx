@@ -24,7 +24,7 @@ const CreateCVPage = () => {
       </Head>
       {index === 0 ? <ChooseTemplate goNext={goNext} /> : null}
       {index === 1 ? <CVForm goNext={goNext} goBack={goBack} /> : null}
-      {index === 1 ? <CVPreview /> : null}
+      {index === 1 ? <CVPreview cvInfo /> : null}
       {index === 2 ? <FinalCV goBack={goBack} /> : null}
     </main>
   );
