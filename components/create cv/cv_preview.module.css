@@ -3,6 +3,8 @@
   height: 90vh;
   position: fixed;
   background-color: white;
+  display: flex;
+  flex-direction: column;
   box-shadow: 2px 0px 10px 4px rgb(204, 204, 204);
 }
 
