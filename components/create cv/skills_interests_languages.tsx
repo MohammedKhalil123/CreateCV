@@ -97,7 +97,7 @@ export default function SkillsAndInterests() {
                     >
                       <Field
                         className={sharedStyles.bulletPointField}
-                        name={`interest.${index}`}
+                        name={`interests.${index}`}
                       />
 
                       {index !== 0 ? (

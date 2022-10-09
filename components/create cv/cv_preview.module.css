@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: row;
   gap: 1em;
+  font-family: sans-serif;
   box-shadow: 2px 0px 10px 4px rgb(204, 204, 204);
 }
 
@@ -23,8 +24,9 @@
   flex-direction: column;
   width: 35%;
   height: 100%;
-  padding: 16px 12px;
+  padding: 16px 8px;
   background-color: crimson;
+  color: white;
 }
 
 .secondColumn {
@@ -41,14 +43,59 @@
 }
 
 .job {
-  font-size: 20px;
+  font-size: 1.2vw;
   text-transform: capitalize;
 }
 
 .location {
-  font-size: small;
+  font-size: 0.7vw;
+}
+.email {
+  text-transform: lowercase;
+  font-size: 0.6vw;
+  margin: 4px 0px;
 }
 
-.leftColumnTitle {
-  color: white;
+.rightColumnHeaders,
+.rightColumnHeaders {
+  font-size: 1.12vw;
+  margin: 8px 0px;
+}
+
+.educationContainer,
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.singleEducation {
+  display: flex;
+  flex-direction: column;
+}
+
+.majorAndUniversity {
+  font-size: 0.9vw;
+  text-transform: capitalize;
+}
+
+.dates {
+  font-size: 0.6vw;
+  color: gray;
+}
+
+.gpa {
+  font-size: 0.7vw;
+  font-weight: bold;
+}
+
+.experiencePoints {
+  font-size: 0.7vw;
+}
+
+.languageElement,
+.skillElement,
+.interestElement {
+  text-transform: capitalize;
+  font-size: 0.6vw;
 }

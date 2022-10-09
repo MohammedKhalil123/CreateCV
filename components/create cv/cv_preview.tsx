@@ -10,12 +10,21 @@ export default function CVPreview() {
     <div className={styles.pageContainer}>
       <section className={styles.page}>
         <div className={styles.leftColumn}>
-          <h3 className={styles.leftColumnTitle}>Languages</h3>
+          <span className={styles.rightColumnHeaders}>Languages</span>
 
-          <li>{values.languages[0].language}</li>
+          {values.languages.map((languageElement, index) => (
+            <li key={index} className={styles.languageElement}>
+              {languageElement.language} : {languageElement.level}
+            </li>
+          ))}
 
-          <h3 className={styles.leftColumnTitle}>Interests</h3>
-          <h3 className={styles.leftColumnTitle}>Skills</h3>
+          <span className={styles.rightColumnHeaders}>Skills</span>
+
+          {values.skills.map((skill, index) => (
+            <li key={index} className={styles.skillElement}>
+              {skill}
+            </li>
+          ))}
         </div>
         <div className={styles.secondColumn}>
           <span className={styles.name}>
@@ -26,9 +35,54 @@ export default function CVPreview() {
           <span className={styles.location}>
             {values.personalInformation.location}
           </span>
-          <hr style={{ width: "100%" }}></hr>
-          <h1>Education</h1>
-          <h1>Experience</h1>
+          <span className={styles.email}>
+            {values.personalInformation.email}
+          </span>
+          <hr style={{ width: "100%", margin: "0px" }}></hr>
+          <span className={styles.rightColumnHeaders}>Education</span>
+          <div className={styles.educationContainer}>
+            {values.educationList.map((education, index) => {
+              return (
+                <div key={index} className={styles.singleEducation}>
+                  <span className={styles.majorAndUniversity}>
+                    {education.major} - {education.university}
+                  </span>
+                  <span className={styles.dates}>
+                    {education.from}- {education.to}
+                  </span>
+                  <span className={styles.gpa}>GPA: {education.gpa}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          <span className={styles.rightColumnHeaders}>Experience</span>
+          <div className={styles.experienceContainer}>
+            {values.experienceList.map((experience, index) => {
+              return (
+                <div key={index} className={styles.singleEducation}>
+                  <span className={styles.majorAndUniversity}>
+                    {experience.jobTitle} - {experience.company}
+                  </span>
+                  <span className={styles.dates}>
+                    {experience.from}-{" "}
+                    {experience.isCurrent ? "Current" : experience.to}
+                  </span>
+                  <div className={styles.experiencePoints}>
+                    {experience.points.map((point, index) => (
+                      <li key={index}>{point}</li>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <span className={styles.rightColumnHeaders}>Interests</span>
+          {values.interests.map((interest, index) => (
+            <li key={index} className={styles.interestElement}>
+              {interest}
+            </li>
+          ))}
         </div>
       </section>
     </div>
