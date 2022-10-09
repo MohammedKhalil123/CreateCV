@@ -52,71 +52,32 @@ export interface CVInformation {
   languages: LanguageInfo[];
 }
 
-const initialValues: CVInformation = {
-  personalInformation: {
-    firstName: "",
-    lastName: "",
-    email: "",
-    location: "",
-    job: "",
-  },
-  experienceList: [
-    {
-      jobTitle: "",
-      company: "",
-      isCurrent: false,
-      from: "",
-      to: "",
-      points: [""],
-    },
-  ],
-  educationList: [
-    {
-      major: "",
-      university: "",
-      from: "",
-      to: "",
-      gpa: "",
-    },
-  ],
-  skills: [""],
-  interests: [""],
-  languages: [{ language: "", level: LanguageLevels.beginner }],
-};
-
 export default function CVForm(props: any) {
   const { goNext, goBack } = props;
 
   return (
     <section className={styles.formContainer}>
       <span className={styles.title}>Create CV</span>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          console.log(JSON.stringify(values, null, 2));
-          goNext();
-        }}
-      >
-        <Form className={styles.form}>
-          <PersonalInfo />
-          <EducationInfo />
-          <ExperienceInfo />
-          <SkillsAndInterests />
-          <div className={styles.actionButtons}>
-            <Button
-              variant="outlined"
-              onClick={goBack}
-              color="primary"
-              size="large"
-            >
-              Back
-            </Button>
-            <Button variant="contained" type="submit" size="large">
-              Generate
-            </Button>
-          </div>
-        </Form>
-      </Formik>
+
+      <Form className={styles.form}>
+        <PersonalInfo />
+        <EducationInfo />
+        <ExperienceInfo />
+        <SkillsAndInterests />
+        <div className={styles.actionButtons}>
+          <Button
+            variant="outlined"
+            onClick={goBack}
+            color="primary"
+            size="large"
+          >
+            Back
+          </Button>
+          <Button variant="contained" type="submit" size="large">
+            Generate
+          </Button>
+        </div>
+      </Form>
     </section>
   );
 }

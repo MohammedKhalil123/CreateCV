@@ -4,7 +4,8 @@
   position: fixed;
   background-color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 1em;
   box-shadow: 2px 0px 10px 4px rgb(204, 204, 204);
 }
 
@@ -15,4 +16,39 @@
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 100%;
+  padding: 16px 12px;
+  background-color: crimson;
+}
+
+.secondColumn {
+  display: flex;
+  padding-top: 16px;
+  padding-right: 16px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.job {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.location {
+  font-size: small;
+}
+
+.leftColumnTitle {
+  color: white;
 }
