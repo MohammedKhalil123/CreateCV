@@ -20,12 +20,30 @@ const initialValues: CVInformation = {
   },
   experienceList: [
     {
+      jobTitle: "Software Engineering",
+      company: "second company",
+      isCurrent: true,
+      from: "03/2021",
+      to: "",
+      points: [
+        "Managed and Delivered good products and syff",
+        "Responsible for The UI",
+        "Added Stories feature",
+        "Managed and Delivered good products and syff",
+        "Managed and Delivered good products and syff",
+      ],
+    },
+    {
       jobTitle: "Flutter Developer",
       company: "Mham it",
       isCurrent: false,
       from: "03/2021",
       to: "08/2022",
-      points: [""],
+      points: [
+        "Managed and Delivered good products",
+        "Responsible for The UI",
+        "Added Stories feature",
+      ],
     },
   ],
   educationList: [
