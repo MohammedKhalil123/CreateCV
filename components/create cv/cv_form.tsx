@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { Formik, Form } from "formik";
+import { Form } from "formik";
 import styles from "./cv_form.module.css";
 import EducationInfo from "./education_info";
 import ExperienceInfo from "./experience_info";
