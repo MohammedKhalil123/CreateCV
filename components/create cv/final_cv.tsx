@@ -1,10 +1,70 @@
 import { Button } from "@mui/material";
-import { PDFViewer, Page, Document, Text } from "@react-pdf/renderer";
+import {
+  PDFViewer,
+  Page,
+  Document,
+  Text,
+  View,
+  StyleSheet,
+} from "@react-pdf/renderer";
 import { useFormikContext } from "formik";
 import { CVInformation } from "./cv_form";
 import styles from "./final_cv.module.css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DownloadIcon from "@mui/icons-material/Download";
+
+const pdfStyles = StyleSheet.create({
+  page: { backgroundColor: "tomato" },
+  section: {
+    display: "flex",
+    flexDirection: "row",
+    fontFamily: "Helvetica",
+    height: "100%",
+    gap: "24px",
+  },
+  leftColumn: {
+    width: "35%",
+    color: "white",
+    padding: "16px 8px",
+    backgroundColor: "#dc143c",
+    display: "flex",
+    flexDirection: "column",
+    marginRight: "24px",
+  },
+  leftAndRightColumnHeaders: {
+    fontSize: "19px",
+    margin: "8px 0px",
+  },
+  languageAndSkillAndInterest: {
+    fontSize: "12px",
+    textTransform: "capitalize",
+  },
+  rightColumn: {
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: "16px",
+    paddingRight: "16px",
+    textAlign: "center",
+  },
+  name: {
+    fontSize: "25px",
+    fontFamily: "Helvetica-Bold",
+  },
+  job: {
+    fontSize: "20px",
+    textTransform: "capitalize",
+    margin: "6px 0px",
+  },
+  location: {
+    fontSize: "14px",
+    margin: "4px 0px",
+  },
+  email: {
+    fontSize: "12px",
+    textTransform: "lowercase",
+    margin: "4px 0px",
+  },
+});
 
 export default function FinalCV(props: any) {
   const { values, submitForm } = useFormikContext<CVInformation>();
@@ -32,7 +92,71 @@ export default function FinalCV(props: any) {
       <PDFViewer width="100%" height="100%">
         <Document>
           <Page>
-            <Text>{values.personalInformation.firstName}</Text>
+            <View style={pdfStyles.section}>
+              <View style={pdfStyles.leftColumn}>
+                <Text style={pdfStyles.leftAndRightColumnHeaders}>
+                  Languages
+                </Text>
+                {values.languages.map((languageElement, index) => (
+                  <View
+                    key={index}
+                    style={{
+                      flexDirection: "row",
+                      marginBottom: 4,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ marginHorizontal: 8 }}>•</Text>
+                    <Text style={pdfStyles.languageAndSkillAndInterest}>
+                      {languageElement.language} : {languageElement.level}
+                    </Text>
+                  </View>
+                ))}
+
+                <Text style={pdfStyles.leftAndRightColumnHeaders}>Skills</Text>
+                {values.skills.map((skill, index) => (
+                  <View
+                    key={index}
+                    style={{
+                      flexDirection: "row",
+                      marginBottom: 4,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ marginHorizontal: 8 }}>•</Text>
+                    <Text style={pdfStyles.languageAndSkillAndInterest}>
+                      {skill}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+              <View style={pdfStyles.rightColumn}>
+                <Text style={pdfStyles.name}>
+                  {values.personalInformation.firstName}{" "}
+                  {values.personalInformation.lastName}
+                </Text>
+                <Text style={pdfStyles.job}>
+                  {values.personalInformation.job}
+                </Text>
+                <Text style={pdfStyles.location}>
+                  {values.personalInformation.location}
+                </Text>
+                <Text style={pdfStyles.email}>
+                  {values.personalInformation.email}
+                </Text>
+                <Text style={pdfStyles.leftAndRightColumnHeaders}>
+                  Education
+                </Text>
+                <Text style={pdfStyles.leftAndRightColumnHeaders}>
+                  Experience
+                </Text>
+                <Text style={pdfStyles.leftAndRightColumnHeaders}>
+                  Interests
+                </Text>
+              </View>
+            </View>
           </Page>
         </Document>
       </PDFViewer>

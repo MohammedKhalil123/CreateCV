@@ -10,7 +10,7 @@ export default function CVPreview() {
     <div className={styles.pageContainer}>
       <section className={styles.page}>
         <div className={styles.leftColumn}>
-          <span className={styles.rightColumnHeaders}>Languages</span>
+          <span className={styles.leftColumnHeaders}>Languages</span>
 
           {values.languages.map((languageElement, index) => (
             <li key={index} className={styles.languageElement}>
@@ -18,7 +18,7 @@ export default function CVPreview() {
             </li>
           ))}
 
-          <span className={styles.rightColumnHeaders}>Skills</span>
+          <span className={styles.leftColumnHeaders}>Skills</span>
 
           {values.skills.map((skill, index) => (
             <li key={index} className={styles.skillElement}>
