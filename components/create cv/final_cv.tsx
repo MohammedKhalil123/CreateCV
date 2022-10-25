@@ -64,6 +64,22 @@ const pdfStyles = StyleSheet.create({
     textTransform: "lowercase",
     margin: "4px 0px",
   },
+  singleEducation: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  majorAndUniversity: {
+    fontSize: "15px",
+    textTransform: "capitalize",
+  },
+  dates: {
+    fontSize: "10px",
+    color: "grey",
+  },
+  gpa: {
+    fontSize: "12px",
+    fontWeight: "bold",
+  },
 });
 
 export default function FinalCV(props: any) {
@@ -74,7 +90,7 @@ export default function FinalCV(props: any) {
     <div className={styles.mainPage}>
       <div className={styles.info}>
         <span className={styles.title}>
-          {values.personalInformation.firstName}'s CV
+          {values.personalInformation.firstName}&apos;s CV
         </span>
         <div className={styles.actionButtons}>
           <Button
@@ -149,12 +165,70 @@ export default function FinalCV(props: any) {
                 <Text style={pdfStyles.leftAndRightColumnHeaders}>
                   Education
                 </Text>
+                {values.educationList.map((education, index) => {
+                  return (
+                    <View key={index} style={pdfStyles.singleEducation}>
+                      <Text style={pdfStyles.majorAndUniversity}>
+                        {education.major} - {education.university}
+                      </Text>
+                      <Text style={pdfStyles.dates}>
+                        {education.from}- {education.to}
+                      </Text>
+                      <Text style={pdfStyles.gpa}>GPA: {education.gpa}</Text>
+                    </View>
+                  );
+                })}
                 <Text style={pdfStyles.leftAndRightColumnHeaders}>
                   Experience
                 </Text>
+                {values.experienceList.map((experience, index) => {
+                  return (
+                    <View key={index} style={pdfStyles.singleEducation}>
+                      <Text style={pdfStyles.majorAndUniversity}>
+                        {experience.jobTitle} - {experience.company}
+                      </Text>
+                      <Text style={pdfStyles.dates}>
+                        {experience.from}-{" "}
+                        {experience.isCurrent ? "Current" : experience.to}
+                      </Text>
+                      {experience.points.map((point, index) => (
+                        <View
+                          key={index}
+                          style={{
+                            flexDirection: "row",
+                            marginBottom: 4,
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Text style={{ marginHorizontal: 8 }}>•</Text>
+                          <Text style={pdfStyles.languageAndSkillAndInterest}>
+                            {point}
+                          </Text>
+                        </View>
+                      ))}
+                    </View>
+                  );
+                })}
                 <Text style={pdfStyles.leftAndRightColumnHeaders}>
                   Interests
                 </Text>
+                {values.interests.map((interest, index) => (
+                  <View
+                    key={index}
+                    style={{
+                      flexDirection: "row",
+                      marginBottom: 4,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ marginHorizontal: 8 }}>•</Text>
+                    <Text style={pdfStyles.languageAndSkillAndInterest}>
+                      {interest}
+                    </Text>
+                  </View>
+                ))}
               </View>
             </View>
           </Page>
