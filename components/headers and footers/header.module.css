@@ -1,11 +1,12 @@
 .headerStyle {
-  height: 50px;
+  height: 60px;
   background-color: #002463;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 24px;
+  padding-left: 48px;
+  padding-right: 24px;
   box-shadow: 0px 0px 8px 2px gray;
 }
 
@@ -15,6 +16,7 @@
   outline: none;
   color: #002463;
   border: none;
+  font-size: 18px;
   padding: 0px 16px;
   font-weight: bold;
   font-family: "Oswald";
@@ -29,4 +31,13 @@
   text-transform: capitalize;
   color: white;
   font-weight: bold;
+  font-size: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 40px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
