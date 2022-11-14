@@ -8,6 +8,7 @@ import theme from "../src/theme";
 import "../styles/globals.css";
 import createEmotionCache from "../src/createEmotionCache";
 import Header from "../components/headers and footers/header";
+import Footer from "../components/headers and footers/footer";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
