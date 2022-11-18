@@ -11,11 +11,6 @@ export default function Header() {
         <Link href="/create-cv">about</Link>
         <Link href="/create-cv">faq</Link>
       </div>
-      <Link href="/create-cv">
-        <button color="primary" className={styles.createCVButton}>
-          Create Your CV
-        </button>
-      </Link>
     </header>
   );
 }

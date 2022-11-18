@@ -1,13 +1,13 @@
 .headerStyle {
   height: 60px;
-  background-color: #002463;
+  background-color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding-left: 48px;
   padding-right: 24px;
-  box-shadow: 0px 0px 8px 2px gray;
+  border-bottom: 1px solid rgb(160, 160, 160);
 }
 
 .createCVButton {
@@ -27,17 +27,39 @@
 .linksRow {
   display: flex;
   flex-direction: row;
-  gap: 64px;
+  gap: 100px;
   text-transform: capitalize;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
+  color: rgb(71, 71, 71);
+  font-size: 22px;
+}
+
+.linksRow > *:hover {
+  color: #002463;
+}
+
+.linksRow > * {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.linksRow > *::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 250ms ease-in-out width;
+  width: 0%;
+  border-bottom: 2px solid #002463;
+}
+
+.linksRow > *:hover::after {
+  width: 100%;
 }
 
 .logo {
   width: 50px;
   height: 40px;
-  color: white;
+  color: black;
   font-size: 20px;
   text-align: center;
 }

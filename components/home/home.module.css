@@ -8,8 +8,44 @@
   text-align: center;
 }
 
+.firstSectionLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  gap: 24px;
+}
+
+.firstSectionLeft span {
+  font-size: 65px;
+  width: 80%;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgb(192, 192, 192);
+}
+
+.createYourCVButton {
+  height: 70px;
+  width: 35%;
+  font-size: 30px;
+  border-radius: 7px;
+}
+
+.image {
+  border-radius: 10%;
+  background-color: rgb(80, 80, 80);
+  padding: 0px 12px 0px 24px;
+}
+
 .main section:nth-child(1) {
-  background-color: gainsboro;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
 }
 .main section:nth-child(2) {
   background-color: firebrick;
