@@ -8,8 +8,8 @@ export default function Header() {
       <div className={styles.linksRow}>
         <Link href="/">home</Link>
         <Link href="/#Home">pricing</Link>
-        <Link href="/create-cv">about</Link>
-        <Link href="/create-cv">faq</Link>
+        <Link href="/#Home">about</Link>
+        <Link href="/#Home">faq</Link>
       </div>
     </header>
   );
